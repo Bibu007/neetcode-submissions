@@ -1,0 +1,16 @@
+class Solution {
+    /**
+     * @param {number[]} cost
+     * @return {number}
+     */
+    minCostClimbingStairs(cost) {
+        let res = 0;
+        const len = cost.length;
+
+        for (let i = len - 3; i >= 0; i--) {
+            cost[i] = cost[i] + Math.min(cost[i + 1], cost[i + 2]);
+        }
+
+        return Math.min(cost[0], cost[1]);
+    }
+}
